@@ -35,11 +35,11 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center">task employess manage✨</h5>
+                    <h5 class="card-title text-center">Task Employess Manage✨</h5>
                 </div>
                 <div class="card-body">
                     <div class="d-flex">
-                        <a class="btn btn-primary mb-3 ms-auto" href="">New Task</a>
+                        <a class="btn btn-primary mb-3 ms-auto" href="{{ route('tasks.create') }}">New Task</a>
                     </div>
                     <table class="table table-striped" id="table1">
                         <thead>
