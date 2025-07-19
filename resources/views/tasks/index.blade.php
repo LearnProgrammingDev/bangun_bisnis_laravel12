@@ -1,59 +1,89 @@
 @extends('layouts.dashboard');
 @section('content')
+    <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
+        </a>
+    </header>
+
     <div class="page-heading">
-        <h3>Tasks Statistics</h3>
-    </div>
-    <div class="page-content">
-        <section class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>📌 Tasks Today</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex align-items-center justify-content-between">
-                                <div class="form-check">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="task1">
-                                    <label class="form-check-label" for="task1">
-                                        Selesaikan desain dashboard
-                                    </label>
-                                </div>
-                                <span class="badge bg-primary">12 Jul</span>
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Tasks</h3>
+                    <p class="text-subtitle text-muted">
+                        pengelolaan tugas pegawai
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">Dashboard</a>
                             </li>
-                            <li class="list-group-item d-flex align-items-center justify-content-between">
-                                <div class="form-check">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="task2"
-                                        checked>
-                                    <label class="form-check-label text-decoration-line-through text-muted" for="task2">
-                                        Meeting tim proyek pukul 09.00
-                                    </label>
-                                </div>
-                                <span class="badge bg-success">Done</span>
+                            <li class="breadcrumb-item" aria-current="page">
+                                Task
                             </li>
-                            <li class="list-group-item d-flex align-items-center justify-content-between">
-                                <div class="form-check">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="task3">
-                                    <label class="form-check-label" for="task3">
-                                        Push ke GitHub & deploy ke staging
-                                    </label>
-                                </div>
-                                <span class="badge bg-warning text-dark">Today</span>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Index
                             </li>
-                            <li class="list-group-item d-flex align-items-center justify-content-between">
-                                <div class="form-check">
-                                    <input class="form-check-input me-2" type="checkbox" value="" id="task4">
-                                    <label class="form-check-label" for="task4">
-                                        Revisi bug dari QA
-                                    </label>
-                                </div>
-                                <span class="badge bg-danger">Due Soon</span>
-                            </li>
-                        </ul>
-                    </div>
+                        </ol>
+                    </nav>
                 </div>
             </div>
-
+        </div>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center">task employess manage✨</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <a class="btn btn-primary mb-3 ms-auto" href="">New Task</a>
+                    </div>
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Assigned_to</th>
+                                <th>Tanggal Selesai</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($tasks as $task)
+                                <tr>
+                                    <td>{{ $task->title }}</td>
+                                    <td>
+                                        {{ $task->pegawai->nama_lengkap }}
+                                    </td>
+                                    <td>{{ $task->tanggal_selesai }}</td>
+                                    <td>
+                                        @if ($task->status == 'pending')
+                                            <span class="text-warning">Pending</span>
+                                        @elseif ($task->status == 'done')
+                                            <span class="text-success">Done</span>
+                                        @else
+                                            <span class="text-info">{{ $task->status }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="" class="btn btn-info btn-sm">View</a>
+                                        @if ($task->status == 'pending')
+                                            <a href="" class="btn btn-success btn-sm">Mark as Done</a>
+                                        @else
+                                            <a href="" class="btn btn-warning btn-sm">Mark as Pending</a>
+                                        @endif
+                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
     </div>
 @endsection;
