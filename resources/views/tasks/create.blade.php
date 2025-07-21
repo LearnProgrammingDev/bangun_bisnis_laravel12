@@ -77,7 +77,7 @@
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" required>
                                 <option value="pending">Pending</option>
-                                <option value="on progres">On Progress</option>
+                                <option value="on progress">On Progress</option>
                                 <option value="done">Done</option>
                             </select>
                             @error('status')

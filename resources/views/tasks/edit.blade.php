@@ -35,7 +35,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center">Create Task to Employess✨</h5>
+                    <h5 class="card-title text-center">Update Task to Employess✨</h5>
                 </div>
                 <div class="card-body">
                     @if (session('error'))

@@ -1,4 +1,4 @@
-@extends('layouts.dashboard');
+@extends('layouts.dashboard')
 @section('content')
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -71,9 +71,15 @@
                                     <td>
                                         <a href="" class="btn btn-info btn-sm">View</a>
                                         @if ($task->status == 'pending')
-                                            <a href="" class="btn btn-success btn-sm">Mark as Done</a>
+                                            <a href="{{ route('tasks.pending', $task->id) }}"
+                                                class="btn btn-success btn-sm">Mark
+                                                as
+                                                Done</a>
+                                        @elseif ($task->status == 'on progress')
+                                            <a href="" class="btn btn-secondary btn-sm">Mark as On Progress</a>
                                         @else
-                                            <a href="" class="btn btn-warning btn-sm">Mark as Pending</a>
+                                            <a href="{{ route('tasks.done', $task->id) }}"
+                                                class="btn btn-warning btn-sm">Mark as Pending</a>
                                         @endif
                                         <a href="{{ route('tasks.edit', $task->id) }}"
                                             class="btn btn-warning btn-sm">Edit</a>
@@ -91,4 +97,4 @@
             </div>
         </section>
     </div>
-@endsection;
+@endsection
