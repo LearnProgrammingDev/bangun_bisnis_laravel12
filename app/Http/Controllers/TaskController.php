@@ -82,4 +82,8 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index')->with('success', 'Task marked as pending.');
     }
+    public function show(Task $task)
+    {
+        return view('tasks.show', compact('task'));
+    }
 }
