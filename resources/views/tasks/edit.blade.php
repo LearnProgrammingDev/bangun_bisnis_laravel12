@@ -1,4 +1,4 @@
-@extends('layouts.dashboard');
+@extends('layouts.dashboard')
 @section('content')
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -107,4 +107,4 @@
             </div>
         </section>
     </div>
-@endsection;
+@endsection
