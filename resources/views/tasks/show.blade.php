@@ -53,7 +53,7 @@
 
                         <dt class="col-sm-3">Diberikan Kepada</dt>
                         {{-- Asumsi ada relasi 'assignedTo' di model Task --}}
-                        <dd class="col-sm-9">{{ $task->assignedTo->nama_lengkap ?? 'Pegawai tidak ditemukan' }}</dd>
+                        <dd class="col-sm-9">{{ $task->pegawai->nama_lengkap ?? 'Pegawai tidak ditemukan' }}</dd>
 
                         <dt class="col-sm-3">Batas Waktu</dt>
                         {{-- Format tanggalnya biar bagus, jangan mentahan dari database --}}

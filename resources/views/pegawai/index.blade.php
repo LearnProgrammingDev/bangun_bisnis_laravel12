@@ -64,17 +64,17 @@
                                     <td>{{ $pgw->hire_date }}</td>
                                     <td>
                                         @if ($pgw->status == 'active')
-                                            <span class="text-danger">InActive</span>
-                                        @elseif ($pgw->status == 'inactive')
                                             <span class="text-success">Aactive</span>
+                                        @elseif ($pgw->status == 'inactive')
+                                            <span class="text-danger">InActive</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-info btn-sm">View</a>
+                                        <a href="{{ route('pegawai.show', $pgw->id) }}" class="btn btn-info btn-sm">View</a>
                                         @if ($pgw->status == 'active')
-                                            <a href="" class="btn btn-success btn-sm">Mark as Active</a>
-                                        @elseif ($pgw->status == 'inactive')
                                             <a href="" class="btn btn-warning btn-sm">Mark as Inactive</a>
+                                        @elseif ($pgw->status == 'inactive')
+                                            <a href="" class="btn btn-success btn-sm">Mark as Active</a>
                                         @endif
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
                                         <form action="" method="POST" style="display: inline-block;">

@@ -85,7 +85,7 @@
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" required>
                                 <option value="pending" @if (old('status', $task->status) == 'pending') selected @endif>Pending</option>
-                                <option value="on progres" @if (old('status', $task->status) == 'on progres') selected @endif>On Progress
+                                <option value="on progress" @if (old('status', $task->status) == 'on progress') selected @endif>On Progress
                                 </option>
                                 <option value="done" @if (old('status', $task->status) == 'done') selected @endif>Done</option>
                             </select>
