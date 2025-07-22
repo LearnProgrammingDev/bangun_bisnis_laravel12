@@ -77,10 +77,12 @@
                                             <a href="" class="btn btn-success btn-sm">Mark as Active</a>
                                         @endif
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <form action="" method="POST" style="display: inline-block;">
+                                        <form action="{{ route('pegawai.destroy', $pgw->id) }}" method="POST"
+                                            style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

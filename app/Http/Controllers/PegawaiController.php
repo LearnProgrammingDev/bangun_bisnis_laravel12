@@ -20,4 +20,13 @@ class PegawaiController extends Controller
         $pegawai = Pegawai::findOrFail($id);
         return view('pegawai.show', compact('pegawai'));
     }
+    public function destroy($id)
+    {
+        // hapus data pegawai berdasarkan id
+        $pegawai = Pegawai::findOrFail($id);
+        $pegawai->delete();
+
+        // redirect ke halaman pegawai.index dengan pesan sukses
+        return redirect()->route('pegawai.index')->with('success', 'Pegawai deleted successfully');
+    }
 }
