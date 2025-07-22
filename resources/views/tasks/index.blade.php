@@ -56,7 +56,8 @@
                                 <tr>
                                     <td>{{ $task->title }}</td>
                                     <td>
-                                        {{ $task->pegawai->nama_lengkap }}
+                                        {{ $task->pegawai->nama_lengkap ?? 'Unassigned' }}
+                                        {{-- Assuming you have a relationship set up in Task model --}}
                                     </td>
                                     <td>{{ $task->tanggal_selesai }}</td>
                                     <td>

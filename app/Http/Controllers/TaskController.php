@@ -12,7 +12,8 @@ class TaskController extends Controller
     {
         $tasks = Task::all();
         // dd($task);
-        return view('tasks.index', compact('tasks'));
+        $pegawai = Pegawai::all();
+        return view('tasks.index', compact('tasks', 'pegawai'));
     }
 
     public function create()
